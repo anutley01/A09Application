@@ -17,6 +17,7 @@ import static android.support.v4.content.ContextCompat.getDrawable;
 
 public class HomeFragment extends Fragment {
 
+    public static int SECONDS_IN_A_DAY = 24 * 60 * 60;
     ViewPager viewPager;
     ViewPagerAdapter adapter;
     LinearLayout sliderDotsPanel;
@@ -39,9 +40,6 @@ public class HomeFragment extends Fragment {
         sliderDotsPanel = (LinearLayout) view.findViewById(R.id.SliderDots);
         active_dots = getDrawable(getActivity().getApplicationContext(), R.drawable.active_dot);
         nonactive_dots = getDrawable(getActivity().getApplicationContext(), R.drawable.nonactive_dot);
-
-
-
 
         adapter = new ViewPagerAdapter(this.getActivity());
         viewPager.setAdapter(adapter);
@@ -105,15 +103,14 @@ public class HomeFragment extends Fragment {
                 public void run() {
 
 
-                        if (viewPager.getCurrentItem() == 0) {
-                            viewPager.setCurrentItem(1);
-                        } else if (viewPager.getCurrentItem() == 1) {
-                            viewPager.setCurrentItem(2);
-                        } else if (viewPager.getCurrentItem() == 2) {
-                            viewPager.setCurrentItem(3);
+                    if (viewPager.getCurrentItem() == 0) {
+                        viewPager.setCurrentItem(1);
+                    } else if (viewPager.getCurrentItem() == 1) {
+                        viewPager.setCurrentItem(2);
+                    } else if (viewPager.getCurrentItem() == 2) {
+                        viewPager.setCurrentItem(3);
 
-                        }
-
+                    }
 
 
                 }
@@ -122,9 +119,8 @@ public class HomeFragment extends Fragment {
             });
         }
     }
-}
 
-
+    }
 
 
 
